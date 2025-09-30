@@ -1,7 +1,17 @@
+@import "../shared/styles/stylescheet.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+body {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+.font-tt-travels-bold {
+  font-family: 'TT Travels';
+  font-weight: 700;
+}
 
 @theme inline {
   --color-background: var(--background);
