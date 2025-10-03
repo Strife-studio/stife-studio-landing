@@ -13,6 +13,22 @@ body {
   font-weight: 700;
 }
 
+.carousel-item {
+  flex-basis: calc(100% * 0.94); 
+}
+
+@media (min-width: 780px) {
+  .carousel-item {
+    flex-basis: calc(50% * 0.94); 
+  }
+}
+
+@media (min-width: 1280px) {
+  .carousel-item {
+    flex-basis: calc(33.333333% * 0.94);
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

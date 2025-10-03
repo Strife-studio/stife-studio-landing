@@ -10,15 +10,9 @@ export const ServicesWidget = () => {
     >
       <CarouselContent>
         {servicesContent.map(({ title }, index) => (
-          <CarouselItem
-            key={index}
-            className="mr-4 last:mr-0"
-            style={{
-              flexBasis: `calc(1/3 * 94%)`,
-            }}
-          >
+          <CarouselItem key={index} className="mr-4 last:mr-0 carousel-item">
             <div
-              className="h-[400px] bg-cover bg-center flex justify-center items-center rounded-3xl p-8"
+              className="h-[400px] flex justify-center items-center rounded-3xl p-8"
               style={{ backgroundImage: `url(/images/bg-card.png)` }}
             >
               <div className="flex justify-start items-end h-full w-full">

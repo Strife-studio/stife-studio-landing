@@ -1,34 +1,38 @@
 import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
 import "./globals.css";
-
 import { cn } from "@/shared";
 
 const robotoFlex = Roboto_Flex({
   variable: "--font-roboto-flex",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Strife Studio - Разработка, Дизайн и Монтаж",
+  title: "Strife Studio - Разработка, Дизайн, AI и edTech решения",
   description:
-    "Strife Studio — инновационная студия разработки программного обеспечения, дизайна и монтажа. Создаем решения для edTech, AI и не только с использованием передовых технологий.",
+    "Strife Studio — инновационная студия разработки программного обеспечения, дизайна и монтажа. Создаем цифровое превосходство для вашего бизнеса с использованием AI, edTech и современных технологий. Более 60 завершенных проектов и 50+ довольных клиентов. Присоединяйтесь к нам в Telegram: https://t.me/strife_studio.",
   keywords: [
-    "разработка",
-    "дизайн",
-    "монтаж",
-    "edTech",
-    "AI",
-    "программное обеспечение",
-    "студия разработки",
     "Strife Studio",
+    "разработка программного обеспечения",
+    "веб-разработка",
+    "мобильная разработка",
+    "UI/UX дизайн",
+    "DevOps",
+    "технический консалтинг",
+    "AI",
+    "edTech",
+    "backend разработка",
+    "API интеграция",
+    "цифровое превосходство",
+    "Telegram Strife Studio",
   ],
   authors: [{ name: "Strife Studio Team", url: "https://strifestudio.com" }],
   openGraph: {
-    title: "Strife Studio - Ваши идеи в жизнь",
+    title: "Strife Studio - Создаем цифровое превосходство",
     description:
-      "Инновации в разработке, дизайне и монтаже с использованием AI и современных технологий.",
+      "Мы решаем сложные IT-задачи: веб и мобильная разработка, UI/UX дизайн, AI и edTech решения. 60+ проектов, 50+ довольных клиентов. Подпишитесь на наш Telegram: https://t.me/strife_studio.",
     url: "https://strifestudio.com",
     siteName: "Strife Studio",
     images: [
@@ -36,17 +40,17 @@ export const metadata: Metadata = {
         url: "https://strifestudio.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Strife Studio Logo",
+        alt: "Strife Studio - Разработка и Дизайн",
       },
     ],
-    locale: "en_US",
+    locale: "ru_RU",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Strife Studio - Development & Design",
+    title: "Strife Studio - Разработка, Дизайн, AI",
     description:
-      "Leading studio in software development, design, and motion effects with AI integration.",
+      "Полный цикл разработки: от концепции до запуска. AI, edTech, веб и мобильные приложения. Подпишитесь: https://t.me/strife_studio.",
     images: ["https://strifestudio.com/twitter-image.jpg"],
     creator: "@StrifeStudio",
   },
@@ -72,6 +76,10 @@ export const metadata: Metadata = {
     google: "google-site-verification-code",
     yandex: "yandex-verification-code",
   },
+  icons: {
+    icon: "/icons/favicon.ico",
+    apple: "/icons/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -80,7 +88,73 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="motion-safe:scroll-smooth">
+    <html lang="ru" className="motion-safe:scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Strife Studio",
+              url: "https://strifestudio.com",
+              logo: "https://strifestudio.com/icons/strife-logo.svg",
+              description:
+                "Strife Studio — студия разработки программного обеспечения, дизайна и монтажа. Мы создаем цифровое превосходство с использованием AI и edTech технологий. Более 60 завершенных проектов и 50+ довольных клиентов.",
+              sameAs: ["https://t.me/strife_studio"],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Service",
+                url: "https://t.me/strife_studio",
+              },
+              makesOffer: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Веб-разработка",
+                    description:
+                      "Создание современных веб-приложений для бизнеса.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Мобильная разработка",
+                    description: "Разработка приложений для iOS и Android.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "UI/UX Дизайн",
+                    description:
+                      "Создание интуитивных и привлекательных интерфейсов.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "DevOps и Облака",
+                    description: "Настройка инфраструктуры и облачных решений.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Технический консалтинг",
+                    description: "Консультации по оптимизации IT-процессов.",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={cn(`antialiased`, robotoFlex.variable)}>
         <div>{children}</div>
       </body>
