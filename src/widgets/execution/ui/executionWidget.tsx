@@ -1,16 +1,32 @@
 import Image from "next/image";
 import { executionContent } from "../lib/constants";
 import { cn } from "@/shared";
+import { Variants, motion } from "framer-motion";
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.2 },
+  },
+  hover: { scale: 1.01, transition: { duration: 0.3 } },
+};
 
 export const ExecutionWidget = () => {
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
       {executionContent.map((execution) => {
         return (
-          <div
+          <motion.div
             key={execution.id}
             style={{ backgroundImage: `url(${execution.bgCardPath})` }}
             className="w-full h-[450px] md:h-[640px] rounded-3xl p-10 space-y-4 bg-cover"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+            whileHover="hover"
           >
             <div className="flex flex-col items-center justify-center space-y-6">
               <span>
@@ -35,7 +51,7 @@ export const ExecutionWidget = () => {
                 )}
               />
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>
