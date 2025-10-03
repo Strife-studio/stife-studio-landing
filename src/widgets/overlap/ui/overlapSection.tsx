@@ -1,6 +1,7 @@
+import { useScrollVisibility } from "@/shared/hooks/useScrollVisibility";
 import { scrollByContainer } from "@/shared/lib/helper";
 import { Header } from "@/widgets/header/ui/header";
-import { Variants, motion } from "framer-motion";
+import { AnimatePresence, Variants, motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 
@@ -33,6 +34,8 @@ const arrowVariants: Variants = {
 };
 
 export const OverlapSection = () => {
+  const isArrowVisible = useScrollVisibility();
+
   return (
     <motion.section
       className="relative flex h-screen items-center justify-center bg-cover bg-center"
@@ -71,27 +74,31 @@ export const OverlapSection = () => {
           Мы решаем сложные IT проблемы, чтобы ваш бизнес выделялся.
         </motion.p>
       </motion.div>
-      <motion.div
-        className="absolute bottom-16 left-0 w-full flex flex-col items-center space-y-2 z-10"
-        initial="hidden"
-        animate="visible"
-        variants={childVariants}
-      >
-        <motion.button
-          variants={arrowVariants}
-          onClick={() => scrollByContainer("content")}
-          className="cursor-pointer"
-        >
-          <ArrowDown
-            className="text-zinc-400 w-8 h-8 md:w-10 md:h-10"
-            strokeWidth={2}
-          />
-        </motion.button>
+      <AnimatePresence>
+        {isArrowVisible && (
+          <motion.div
+            className="absolute bottom-16 left-0 w-full flex flex-col items-center space-y-2 z-10"
+            initial="hidden"
+            animate="visible"
+            variants={childVariants}
+          >
+            <motion.button
+              variants={arrowVariants}
+              onClick={() => scrollByContainer("content")}
+              className="cursor-pointer"
+            >
+              <ArrowDown
+                className="text-zinc-400 w-8 h-8 md:w-10 md:h-10"
+                strokeWidth={2}
+              />
+            </motion.button>
 
-        <motion.p className="text-zinc-400 font-tt-travels-bold text-lg md:text-xl">
-          Узнать больше
-        </motion.p>
-      </motion.div>
+            <motion.p className="text-zinc-400 font-tt-travels-bold text-lg md:text-xl">
+              Узнать больше
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <motion.div
         className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#f9f9f9a8] to-transparent"
         initial={{ opacity: 0, y: 20 }}
