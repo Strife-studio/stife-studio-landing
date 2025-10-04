@@ -12,7 +12,7 @@ export const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="fixed top-0 left-0 w-full p-6 flex items-center justify-between bg-[#fbb7c3]/80 sm:backdrop-blur-2xl sm:bg-transparent backdrop-blur-md z-20">
+    <header className="fixed top-0 left-0 w-full p-6 flex items-center justify-between bg-[#fbb7c3]/90 sm:backdrop-blur-2xl sm:bg-transparent backdrop-blur-md z-20">
       <div className="flex items-center space-x-3">
         <Image
           alt="logo-strife-studio"

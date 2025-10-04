@@ -77,7 +77,7 @@ export const OverlapSection = () => {
       <AnimatePresence>
         {isArrowVisible && (
           <motion.div
-            className="absolute bottom-16 left-0 w-full flex flex-col items-center space-y-2 z-10"
+            className="absolute bottom-4 left-0 w-full flex flex-col items-center space-y-2 z-10"
             initial="hidden"
             animate="visible"
             variants={childVariants}
