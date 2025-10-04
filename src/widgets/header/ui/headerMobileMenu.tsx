@@ -30,7 +30,6 @@ export const HeaderMobileMenu = ({ isOpen, onClose }: MobileMenuProps) => (
           <NavLink
             key={index}
             label={item.label}
-            href={item.href}
             onClick={onClose}
             variants={itemVariants}
           />
